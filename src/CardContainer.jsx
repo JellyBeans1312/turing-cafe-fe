@@ -14,7 +14,6 @@ const CardContainer = ({ props }) => {
     />
     )
   })
-  console.log(card)
   return (
     <section>
       {card}
