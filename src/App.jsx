@@ -1,0 +1,33 @@
+import React, { Component } from 'react';
+import './App.css';
+import CardContainer from './CardContainer'
+
+class App extends Component {
+  constructor() {
+    super() 
+
+    this.state = {
+      reservations: [],
+      error: ''
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/reservations')
+    .then(response => response.json())
+    .then(reservations => this.setState({ reservations }))
+    .catch(error => this.setState({ error }))
+  }
+
+  render() {
+    console.log(this.state.reservations)
+    return (
+      <div className="App">
+        <h1 className='app-title'>Turing Cafe Reservations</h1>
+        <CardContainer props={this.state.reservations} />
+      </div>
+    )
+  }
+}
+
+export default App;
