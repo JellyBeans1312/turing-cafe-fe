@@ -8,7 +8,7 @@ class ReservationForm extends Component {
       name: '',
       date: '',
       time: '',
-      guests: ''
+      number: ''
     }
   }
 
@@ -19,7 +19,7 @@ class ReservationForm extends Component {
       ...this.state
      }
      this.props.addReservation(newRes)
-     this.setState({ name: '', date: '', time: '', guests: '' })
+     this.setState({ name: '', date: '', time: '', number: '' })
   }
 
   handleChange = e => {
@@ -51,9 +51,9 @@ class ReservationForm extends Component {
         />
         <input 
           type='text'
-          placeholder='Number of Guests'
-          name='guests'
-          value={this.state.guests}
+          placeholder='Number of guests'
+          name='number'
+          value={this.state.number}
           onChange={this.handleChange}
         />
         <button onClick={(event) => this.submitRes(event)}>Submit!</button>
